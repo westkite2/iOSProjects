@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBAction func keyPressed(_ sender: UIButton) {
         playSound(soundName : sender.currentTitle!)
         //print(sender.title(for: .normal))
+        
+        dimButton(senderButton: sender)
     }
     
     func playSound(soundName : String) {
@@ -35,6 +37,15 @@ class ViewController: UIViewController {
         
         // Play the audio
         player.play()
+    }
+    
+    func dimButton(senderButton: UIButton){
+        print("start")
+        senderButton.alpha = 0.5
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2){
+            senderButton.alpha = 1
+            print("end")
+        }
     }
 }
 
